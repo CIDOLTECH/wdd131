@@ -4,54 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peter Ella Bisong | WDD 131</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Personal website of Peter Ella Bisong for WDD 131 Dynamic Web Fundamentals.">
+    <meta name="author" content="Peter Ella Bisong">
+
+    <title>Peter Ella Bisong | WDD 131 Dynamic Web Fundamentals</title>
+
     <link rel="stylesheet" href="styles/layout.css">
 </head>
 
 <body>
 
-    <!-- Header -->
+    <!-- ================= HEADER ================= -->
+
     <header>
+
         <h1>Peter Ella Bisong | WDD 131</h1>
 
-        <!-- Navigation -->
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Projects</a>
-            <a href="#">Services</a>
-            <a href="#">Contact Us</a>
+        <nav aria-label="Primary Navigation">
+            <ul class="navigation">
+
+                <li><a href="#">Home</a></li>
+
+                <li><a href="#">Projects</a></li>
+
+                <li><a href="#">Services</a></li>
+
+                <li><a href="#">Contact</a></li>
+
+            </ul>
         </nav>
+
     </header>
 
-    <!-- Main Content Area -->
+    <!-- ================= MAIN ================= -->
+
     <main>
-        <section class="hero home-hero">
-            <img src="images/home-hero.jpg" alt="Peter Ella Bisong profie photo" loading="lazy">
 
-            <h2>Welcome to my personal website!</h2>
+        <section class="hero">
 
-            <p>DOB: November 29
-                Interest: IT enthusiast
-                Hobbies: Basketball, table tennis, music. reading, writing</p>
+            <img src="images/home-hero.jpg" alt="Portrait of Peter Ella Bisong" width="900" height="500" loading="lazy">
+
+            <div class="hero-content">
+
+                <h2>Welcome to My Personal Website</h2>
+
+                <p>
+                    <strong>Date of Birth:</strong> November 29
+                </p>
+
+                <p>
+                    <strong>Interest:</strong> Information Technology
+                </p>
+
+                <p>
+                    <strong>Hobbies:</strong> Basketball, Table Tennis,
+                    Music, Reading, and Writing
+                </p>
+
+            </div>
+
         </section>
 
         <aside>
-            <p>I'm from Cross River State, Nigeria, located in the South-South geopolitical zone of Nigeria.
-                Named for the Cross River, the state was formed from the eastern part of the Eastern Region on 27 May
-                1967.
-                The state has its capital as Calabar and is bordered to the north by Benue State, to the west by Ebonyi
-                State and Abia State,
-                and to the southwest by Akwa Ibom State while its eastern border forms part of the national border with
-                Cameroon.</p>
+
+            <h2>About My State</h2>
+
+            <p>
+                I am from Cross River State, Nigeria, located in the South-South
+                geopolitical zone. Named after the Cross River, the state was
+                created on May 27, 1967. Its capital is Calabar, and it shares
+                borders with Benue, Ebonyi, Abia, Akwa Ibom, and Cameroon.
+            </p>
+
         </aside>
+
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 WDD 131 | Peter Ella Bisong</p>
-    </footer>
+    <!-- ================= FOOTER ================= -->
 
-    </div>
+    <footer>
+
+        <p>
+            &copy; 2026 | Peter Ella Bisong | WDD 131 Dynamic Web Fundamentals
+        </p>
+
+    </footer>
 
 </body>
 

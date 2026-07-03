@@ -1,137 +1,255 @@
-/* Reset */
-* {
+/* ===========================
+   CSS VARIABLES
+=========================== */
+
+:root {
+
+    --primary-color: #1f2937;
+    --secondary-color: #111827;
+    --accent-color: #2563eb;
+
+    --text-color: #222;
+    --light-color: #ffffff;
+    --background-color: #f7f7f7;
+
+    --max-width: 1200px;
+
+    --heading-font: Georgia, serif;
+    --body-font: Arial, Helvetica, sans-serif;
+
+}
+
+/* ===========================
+   RESET
+=========================== */
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ===========================
+   BODY
+=========================== */
+
 body {
-    font-family: Georgia, serif;
-    background-color: #ffffff;
+
+    font-family: var(--body-font);
+
+    color: var(--text-color);
+
+    background: var(--background-color);
+
+    line-height: 1.6;
+
 }
 
+/* ===========================
+   PAGE WIDTH
+=========================== */
 
 header,
 main,
 footer {
-    max-width: var(--max-with);
-    margin: 0 auto;
+
+    max-width: var(--max-width);
+
+    margin: auto;
+
 }
 
-/* Header */
+/* ===========================
+   HEADER
+=========================== */
+
 header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    height: 120px;
+
+    background: var(--primary-color);
+
+    color: var(--light-color);
+
+    padding: 1.5rem;
+
 }
 
-header h2 {
-    font-size: 1.5rem;
+header h1 {
+
+    text-align: center;
+
+    margin-bottom: 1rem;
+
+    font-family: var(--heading-font);
+
 }
 
-/* Navigation */
-header nav {
-    background-color: #000;
-}
+/* ===========================
+   NAVIGATION
+=========================== */
 
 nav {
+
+    background: var(--secondary-color);
+
+    border-radius: 5px;
+
+}
+
+.navigation {
+
     display: flex;
-    justify-content: space-around;
+
+    justify-content: center;
+
+    gap: 2rem;
+
+    list-style: none;
+
+    padding: 1rem;
+
 }
 
-nav {
-    padding: 15px 0;
-}
+.navigation a {
 
-nav a {
     color: white;
+
     text-decoration: none;
-    font-weight: bold;
-    padding: 75rem 1rem border-radius 5px
+
+    font-weight: 600;
+
+    transition: .3s ease;
+
+    padding: .5rem 1rem;
+
+    border-radius: 5px;
+
 }
 
-/* Main Layout */
+.navigation a:hover,
+.navigation a:focus {
+
+    background: var(--accent-color);
+
+}
+
+/* ===========================
+   MAIN
+=========================== */
+
 main {
+
     display: grid;
-    grid-template-columns: 3fr 1.15fr;
-    min-height: 260px;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 2rem;
+
+    padding: 2rem;
+
 }
 
-.main-content {
-    background-color: #d3d3d3;
-    padding: 15px;
-}
-
-.main-content p,
-aside p {
-    font-size: 1.7rem;
-}
-
-aside {
-    background-color: #ffffff;
-    padding: 15px;
-}
-
-/* HERO */
+/* ===========================
+   HERO
+=========================== */
 
 .hero {
-    position: relative;
+
+    background: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+
 }
 
 .hero img {
+
+    width: 100%;
+
+    height: auto;
+
     display: block;
-    width: 50%;
+
 }
 
-.hero h1 {
-    position: absolute;
-    top: 20px;
-    width: 10px;
+.hero-content {
 
-    text-align: center;
-    color: white;
+    padding: 1.5rem;
 
-    font-size: 3rem;
+}
+
+.hero-content h2 {
+
+    margin-bottom: 1rem;
+
     font-family: var(--heading-font);
 
-    background-color: rgba(0, 0, 0, .45);
-    padding: 1rem;
 }
 
-.hero article {
-    position: absolute;
+/* ===========================
+   ASIDE
+=========================== */
 
-    bottom: 20px;
-    left: 50%;
+aside {
 
-    transform: translateX(-50%);
+    background: white;
 
-    width: 25%;
-    max-width: 200px;
+    padding: 1.5rem;
 
-    background-color: rgba(255, 255, 255, .90);
+    border-radius: 10px;
 
-    padding: 1rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+
 }
 
-.hero article h2 {
-    margin-bottom: .5rem;
+aside h2 {
+
+    margin-bottom: 1rem;
+
 }
 
-.hero article img {
-    float: right;
+/* ===========================
+   FOOTER
+=========================== */
 
-    width: 180px;
-    margin-left: 1rem;
-    border-radius: 8px;
-}
-
-/* Footer */
 footer {
-    background-color: #333;
+
+    background: var(--primary-color);
+
     color: white;
+
     text-align: center;
-    padding-top: 20px;
-    height: 70px;
+
+    padding: 1.5rem;
+
+    margin-top: 2rem;
+
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+@media (max-width: 768px) {
+
+    main {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .navigation {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 1rem;
+
+    }
+
 }
