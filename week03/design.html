@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131Design Principles | Peter Ella Bisong</title>
+    <meta name="description"
+        content="A WDD 131 design-principles case study: accessible layout, contrast-safe color, and a two-column content grid.">
+    <meta name="author" content="Peter Ella Bisong">
+
+    <!-- Preconnect + Google Font: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/design.css">
+    <link rel="icon" href="data:,">
+    <script src="scripts/design.js" defer></script>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="wrapper header-inner">
+            <p class="site-title">Design Principles</p>
+            <nav aria-label="Primary">
+                <ul class="nav-list">
+                    <li><a href="#main-content">Story</a></li>
+                    <li><a href="#banner-info">Field Notes</a></li>
+                    <li><a href="#site-footer">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="callout">
+        <div class="wrapper">
+            <h2>Design is a conversation, not a decoration</h2>
+            <p>&ldquo;Good contrast and clear hierarchy aren&rsquo;t rules imposed on a design &mdash; they&rsquo;re
+                what let every visitor, regardless of ability, actually read what you worked so hard to say.&rdquo;</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="wrapper two-col">
+        <h2 class="section-title">Meet Peter Ella Bisong, a Student from Nigeria</h2>
+
+        <article class="profile-article">
+            <img src="images/profile.webp" alt="Portrait illustration of Peter Ella Bisong, smiling outdoors"
+                width="600" height="600" loading="lazy">
+            <p>
+                Peter Ella Bisong grew up in Kaduna, Kaduna State in northwestern Nigeria, where mornings often begin
+                with golden sunlight spreading across the savanna and rocky hills.
+                He moved to Abuja years back and he is to studying Software Development,
+                and he brings a sharp eye for color and negative space to every project he touches.
+
+            </p>
+            <p>
+                When he isn&rsquo;t in the studio, Peter Ella Bisong volunteers with a local conservation group that
+                maps hiking trails for accessibility, work that quietly shapes how he thinks about clear,
+                legible design for everyone.
+            </p>
+        </article>
+
+        <aside class="fact-list" aria-labelledby="facts-heading">
+            <h3 id="facts-heading">Quick Facts</h3>
+            <ul>
+                <li>Hometown: Cross River, Nigeria</li>
+                <li>Studying: Graphic Design</li>
+                <li>Languages: Hausa, Nigerian Pidgin English</li>
+                <li>Favorite tool: Grid layouts</li>
+                <li>Hobby: Writing</li>
+            </ul>
+        </aside>
+    </main>
+
+    <div class="banner" id="banner-info">
+        <div class="wrapper">
+            <img src="images/country.webp" alt="Illustrated hills and mountains representing Nigeria's landscape"
+                width="800" height="500" loading="lazy" class="banner-img">
+            <p class="banner-text">Nigeria has over 250 ethnic groups and more than 500 languages.</p>
+        </div>
+    </div>
+
+    <footer class="site-footer" id="site-footer">
+        <div class="wrapper footer-inner">
+            <p>&copy; <span id="year"> © </span> Peter Ella Bisong | Design Principles Project</p>
+            <p>Page last modified: <span id="last-modified"></span></p>
+        </div>
+    </footer>
+</body>
+
+</html>

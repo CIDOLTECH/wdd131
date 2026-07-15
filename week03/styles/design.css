@@ -1,0 +1,301 @@
+/* ==========================================================================
+   Design Principles — base.css
+   Table of contents:
+   1. Custom properties (design tokens)
+   2. Reset & base element styles
+   3. Layout primitives (.wrapper)
+   4. Accessibility helpers (skip link, focus states)
+   5. Header
+   6. Callout (contrast-fixed, left-aligned heading)
+   7. Main content — two-column grid
+   8. Banner (static replacement for <marquee>)
+   9. Footer (left-aligned)
+   10. Responsive breakpoints
+   ========================================================================== */
+
+/* 1. Custom properties -------------------------------------------------- */
+:root {
+    --color-ink: #23201f;
+    --color-paper: #faf8f5;
+    --color-surface: #ffffff;
+    --color-border: #ddd6cd;
+
+    /* Callout: original #777 text on #702963 background failed contrast
+     (2.14:1). Replaced with white text on a deepened purple so the
+     ratio clears WCAG AA and AAA for normal text (~11.6:1). */
+    --color-callout-bg: #3d1836;
+    --color-callout-text: #ffffff;
+
+    --color-accent: #702963;
+    --color-banner-bg: #eef4f1;
+
+    --font-body: "Roboto", "Segoe UI", system-ui, sans-serif;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2.5rem;
+    --space-xl: 4rem;
+
+    --radius: 6px;
+    --max-width: 68rem;
+}
+
+/* 2. Reset & base -------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+a {
+    color: var(--color-accent);
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* 3. Layout primitive ---------------------------------------------------- */
+.wrapper {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+/* 4. Accessibility helpers ------------------------------------------------ */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--color-ink);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    z-index: 100;
+    border-radius: 0 0 var(--radius) 0;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* 5. Header --------------------------------------------------------------- */
+.site-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-block: var(--space-sm);
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+    text-decoration: underline;
+}
+
+/* 6. Callout --------------------------------------------------------------- */
+/* Fixed padding issue (was inconsistent/cramped) and left-aligned the
+   heading instead of the original centered treatment. */
+.callout {
+    background-color: var(--color-callout-bg);
+    color: var(--color-callout-text);
+    padding-block: var(--space-lg);
+}
+
+.callout h2 {
+    text-align: left;
+    margin: 0 0 var(--space-sm) 0;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+}
+
+.callout p {
+    margin: 0;
+    max-width: 48ch;
+    font-size: 1.05rem;
+}
+
+/* 7. Main content — two-column grid ---------------------------------------- */
+.two-col {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-lg);
+    padding-block: var(--space-xl);
+}
+
+/* The heading spans both grid tracks so it reads as a section title
+   sitting above the article/list columns. */
+.section-title {
+    grid-column: 1 / -1;
+    margin: 0 0 var(--space-sm) 0;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.profile-article img {
+    margin-bottom: var(--space-sm);
+}
+
+.fact-list {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    align-self: start;
+}
+
+.fact-list h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.fact-list ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.fact-list li+li {
+    margin-top: var(--space-xs);
+}
+
+/* 8. Banner (replaces deprecated <marquee>) --------------------------------- */
+/* A static, accessible region: predictable, non-distracting, and readable
+   by assistive technology — unlike the scrolling marquee it replaces. */
+.banner {
+    background-color: var(--color-banner-bg);
+    padding-block: var(--space-lg);
+}
+
+.banner .wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.banner-img {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.banner-text {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    max-width: 40ch;
+}
+
+/* 9. Footer ----------------------------------------------------------------- */
+.site-footer {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    padding-block: var(--space-md);
+}
+
+.footer-inner {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.footer-inner p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* 10. Responsive breakpoints ------------------------------------------------- */
+@media (max-width: 700px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .banner .wrapper {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .banner-img {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 1200px) {
+    .two-col {
+        grid-template-columns: 2.2fr 1fr;
+    }
+}
