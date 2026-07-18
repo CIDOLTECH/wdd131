@@ -1,5 +1,5 @@
 /**
- * getdates.js
+ * place.js
  * WDD 131 — Nigeria Country Page
  *
  * Demonstrates three categories of JavaScript design patterns:
