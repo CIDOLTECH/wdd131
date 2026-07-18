@@ -227,22 +227,10 @@ button:focus-visible {
    Media query — tablets and larger (wide / desktop layout)
    Panels become floating cards overlaid on the hero image.
    ========================================================= */
-@media (min-width: 768px) {
-  .site-header h1 {
-    letter-spacing: 0.04em;
-  }
+@media (min-width:768px) {
 
-  .hero {
-    min-height: 70vh;
-  }
-
-  .hero img {
-    height: 70vh;
-    min-height: 480px;
-    object-position: center 35%;
-  }
-
-  .panel {
+  .data-panel,
+  .weather-panel {
     position: absolute;
     width: var(--panel-width);
     box-shadow: var(--shadow-panel);
