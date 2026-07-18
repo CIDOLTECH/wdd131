@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="weatherIconTitle">
+  <title id="weatherIconTitle">Partly cloudy weather icon</title>
+  <circle cx="24" cy="22" r="11" fill="#F2C94C"/>
+  <g stroke="#F2C94C" stroke-width="2.5" stroke-linecap="round">
+    <line x1="24" y1="4" x2="24" y2="8"/>
+    <line x1="9" y1="10" x2="12" y2="13"/>
+    <line x1="39" y1="10" x2="36" y2="13"/>
+    <line x1="4" y1="22" x2="8" y2="22"/>
+  </g>
+  <path d="M18 46c-6 0-10-4.6-10-10 0-5 3.7-9.1 8.5-9.8C18 21 22.6 17 28 17c6 0 11 4.4 11.8 10.1C45 28 48 32 48 36.5 48 41.7 43.8 46 38.5 46H18z" fill="#E4E9EC" stroke="#B9C3C9" stroke-width="1.2"/>
+</svg>
