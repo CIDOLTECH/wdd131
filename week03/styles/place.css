@@ -1,0 +1,302 @@
+/* =========================================================
+   base.css — Nigeria Country Profile
+   WDD 131 | Country Page
+   ========================================================= */
+
+/* ---------- Global custom properties ---------- */
+:root {
+  /* Colors — drawn from the Nigerian flag (green & white) */
+  --primary-red: #D21034;
+  --primary-green: #007849;
+
+  --color-green-dark: #00693f;
+  /* header / footer / panel headers */
+  --color-green: #008751;
+  /* brand accent, borders */
+  --color-green-tint: #e7f3ee;
+  /* faint tint for hover / focus */
+  --color-white: #ffffff;
+  --color-card-bg: rgba(255, 255, 255, 0.94);
+  --color-text: #1a1a1a;
+  --color-text-muted: #4b4b4b;
+  --color-focus: #f2c94c;
+
+  /* Typography */
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --fs-heading-xl: clamp(2rem, 5vw, 3rem);
+  --fs-heading-lg: 1.5rem;
+  --fs-body: 1rem;
+  --fs-small: 0.9rem;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Layout */
+  --panel-width: 300px;
+  --radius: 4px;
+  --shadow-panel: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  line-height: 1.5;
+  background-color: var(--color-white);
+}
+
+dl,
+dd,
+dt,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Accessibility: skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-green-dark);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 100;
+  border-radius: 0 0 var(--radius) 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Visible focus state for all interactive/keyboard-navigable elements */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background-color: var(--primary-red);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.site-header h1 {
+  font-size: var(--fs-heading-xl);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.accent-bar {
+  height: 10px;
+  background-color: var(--color-green);
+}
+
+/* ---------- Hero + overlay panels ---------- */
+.hero {
+  position: relative;
+  width: 100%;
+}
+
+.hero picture,
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.panel {
+  background-color: var(--color-card-bg);
+  padding: var(--space-md);
+  border-top: 4px solid var(--color-green);
+}
+
+.panel h2 {
+  background-color: var(--primary-green);
+  color: var(--color-white);
+  font-size: var(--fs-heading-lg);
+  padding: var(--space-sm) var(--space-md);
+  margin: calc(var(--space-md) * -1) calc(var(--space-md) * -1) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fact-list {
+  display: grid;
+  row-gap: var(--space-xs);
+}
+
+.fact-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-block: 2px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.fact-row dt {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fact-row dd {
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+/* Weather icon: desktop uses a CSS pseudo-element (emoji) after the heading text */
+.weather-panel #weather-heading::after {
+  content: "\26C5";
+  /* ⛅ */
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* Mobile SVG icon is hidden by default (shown only in narrow layout below) */
+.weather-icon-mobile {
+  display: none;
+}
+
+/* ---------- Mobile-first (stacked) layout ---------- */
+.panel {
+  width: 100%;
+}
+
+.data-panel,
+.weather-panel {
+  position: static;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background-color: var(--primary-red);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-md);
+  font-size: var(--fs-small);
+}
+
+.site-footer p {
+  margin-block: 4px;
+}
+
+/* =========================================================
+   Media query — tablets and larger (wide / desktop layout)
+   Panels become floating cards overlaid on the hero image.
+   ========================================================= */
+@media (min-width: 768px) {
+  .site-header h1 {
+    letter-spacing: 0.04em;
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero img {
+    height: 70vh;
+    min-height: 480px;
+    object-position: center 35%;
+  }
+
+  .panel {
+    position: absolute;
+    width: var(--panel-width);
+    box-shadow: var(--shadow-panel);
+    border-radius: var(--radius);
+    border-top: none;
+  }
+
+  .data-panel {
+    top: var(--space-xl);
+    left: var(--space-xl);
+  }
+
+  .weather-panel {
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+  }
+
+  /* Desktop shows the emoji pseudo-element; hide the mobile SVG icon */
+  .weather-icon-mobile {
+    display: none;
+  }
+}
+
+/* On mobile: hide the emoji pseudo-element, show the SVG icon under the heading */
+@media (max-width: 767px) {
+  .weather-panel #weather-heading::after {
+    content: none;
+  }
+
+  .weather-panel #weather-heading {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .weather-icon-mobile {
+    display: block;
+  }
+}
+
+/* =========================================================
+   Media query — large desktop refinement
+   ========================================================= */
+@media (min-width: 1200px) {
+  :root {
+    --panel-width: 340px;
+  }
+
+  .site-header {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+
+  .site-header,
+  .site-footer {
+    background: none !important;
+    color: var(--color-text) !important;
+  }
+}
