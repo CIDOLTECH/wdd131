@@ -5,12 +5,14 @@
 
 /* ---------- Global custom properties ---------- */
 :root {
-  /* Colors — drawn from the Nigerian flag (green & white) */
-  --primary-red: #D21034;
-  --primary-green: #007849;
-
+  /* Colors — a single, non-duplicated palette. Every color used
+     anywhere in this file is defined once here and referenced
+     everywhere else via var(), so there is one source of truth
+     and no repeated/competing tokens or raw color literals. */
+  --color-red: #d21034;
+  /* header / footer background */
   --color-green-dark: #00693f;
-  /* header / footer / panel headers */
+  /* panel header background */
   --color-green: #008751;
   /* brand accent, borders */
   --color-green-tint: #e7f3ee;
@@ -20,6 +22,8 @@
   --color-text: #1a1a1a;
   --color-text-muted: #4b4b4b;
   --color-focus: #f2c94c;
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+  --color-shadow: rgba(0, 0, 0, 0.18);
 
   /* Typography */
   --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -38,7 +42,7 @@
   /* Layout */
   --panel-width: 300px;
   --radius: 4px;
-  --shadow-panel: 0 4px 18px rgba(0, 0, 0, 0.18);
+  --shadow-panel: 0 4px 18px var(--color-shadow);
 }
 
 /* ---------- Reset ---------- */
@@ -113,7 +117,7 @@ button:focus-visible {
 
 /* ---------- Header ---------- */
 .site-header {
-  background-color: var(--primary-red);
+  background-color: var(--color-red);
   color: var(--color-white);
   text-align: center;
   padding: var(--space-lg) var(--space-md);
@@ -143,14 +147,18 @@ button:focus-visible {
   object-fit: cover;
 }
 
+/* Single consolidated .panel rule (mobile-first: full-width, static-flow
+   card). The desktop override lives in the 768px media query below —
+   this is now the ONLY top-level .panel rule in the file. */
 .panel {
+  width: 100%;
   background-color: var(--color-card-bg);
   padding: var(--space-md);
   border-top: 4px solid var(--color-green);
 }
 
 .panel h2 {
-  background-color: var(--primary-green);
+  background-color: var(--color-green-dark);
   color: var(--color-white);
   font-size: var(--fs-heading-lg);
   padding: var(--space-sm) var(--space-md);
@@ -170,7 +178,7 @@ button:focus-visible {
   justify-content: space-between;
   gap: var(--space-md);
   padding-block: 2px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .fact-row dt {
@@ -196,11 +204,7 @@ button:focus-visible {
   display: none;
 }
 
-/* ---------- Mobile-first (stacked) layout ---------- */
-.panel {
-  width: 100%;
-}
-
+/* Base (mobile) positioning for the panels — normal document flow */
 .data-panel,
 .weather-panel {
   position: static;
@@ -208,7 +212,7 @@ button:focus-visible {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background-color: var(--primary-red);
+  background-color: var(--color-red);
   color: var(--color-white);
   text-align: center;
   padding: var(--space-md);
