@@ -1,0 +1,41 @@
+@media screen and (min-width: 768px) {
+
+    .menu-button {
+        display: none;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        gap: .5rem;
+    }
+
+    nav a {
+        padding: 1rem .75rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

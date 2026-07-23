@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Picture Album Enhancement | Peter Ella Bisong</title>
+
+    <meta name="description"
+        content="Responsive temple album enhancement project for WDD 131 Dynamic Web Fundamentals.">
+    <meta name="author" content="Peter Ella Bisong">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:title" content="Filtered Temple Album">
+    <meta property="og:description" content="Browse and filter a gallery of temples by age and size.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://content.churchofjesuschrist.org">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css">
+
+    <script src="scripts/filtered-temples.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+
+            <h2 class="site-title">Temple Album</h2>
+
+            <button id="menuButton" class="menu-button" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="primaryNav">
+                <span aria-hidden="true">☰</span>
+            </button>
+
+            <nav id="primaryNav" aria-label="Primary">
+                <a href="#" data-filter="home" class="active">Home</a>
+                <a href="#" data-filter="old">Old</a>
+                <a href="#" data-filter="new">New</a>
+                <a href="#" data-filter="large">Large</a>
+                <a href="#" data-filter="small">Small</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <h1 id="galleryHeading">Home</h1>
+
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+
+        <section class="gallery" id="templeGallery" aria-labelledby="galleryHeading">
+            <!-- Temple cards are generated dynamically by scripts/temples.js -->
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy;<span id="currentyear"></span>
+            🌺 Peter Ella Bisong 🌺 Nigeria
+        </p>
+
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+
+</html>
