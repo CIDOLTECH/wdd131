@@ -1,0 +1,86 @@
+/* siteplan.css — basic styling for the Website Planning Document */
+
+:root {
+  --forest-deep: #16302a;
+  --laterite: #a63a2c;
+  --gold: #d9a441;
+  --parchment: #f1e8d8;
+  --ink: #1b1815;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: "Work Sans", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.wrap {
+  width: min(92%, 60rem);
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
+
+header.doc-header {
+  background: var(--forest-deep);
+  color: var(--parchment);
+  padding-block: 1.5rem;
+  border-bottom: 4px solid var(--laterite);
+}
+header.doc-header .wrap { padding-block: 0; }
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif;
+  color: var(--forest-deep);
+}
+header.doc-header h1 { color: #fff; margin: 0; }
+header.doc-header p { color: var(--gold); margin: 0.25rem 0 0; font-family: monospace; }
+
+h2 {
+  border-bottom: 2px solid var(--laterite);
+  padding-bottom: 0.35rem;
+  margin-top: 3rem;
+}
+
+section { margin-bottom: 2rem; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 1rem;
+}
+th, td {
+  border: 1px solid #cbbfa2;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--forest-deep); color: #fff; }
+
+.swatch-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-block: 1rem; }
+.swatch {
+  width: 9rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #cbbfa2;
+  font-size: 0.8rem;
+}
+.swatch .block { height: 4rem; }
+.swatch .name { padding: 0.4rem 0.5rem; background: #fff; }
+
+.type-sample { padding: 0.75rem 1rem; background: #fff; border: 1px solid #cbbfa2; border-radius: 6px; margin-block: 0.5rem; }
+.type-sample.display { font-family: "Fraunces", Georgia, serif; font-size: 1.6rem; }
+.type-sample.body { font-family: "Work Sans", Arial, sans-serif; }
+.type-sample.mono { font-family: "JetBrains Mono", monospace; }
+
+figure { margin: 0; }
+figcaption { font-size: 0.85rem; color: #4a453f; margin-top: 0.4rem; }
+.wireframes { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 45rem) {
+  .wireframes { grid-template-columns: 1fr 2fr; align-items: start; }
+}
+
+nav.back-link { padding: 0.75rem 0; }
