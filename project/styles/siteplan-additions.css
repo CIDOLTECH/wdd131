@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Additions for siteplan.css — replaces inline styles removed from the HTML
+   ========================================================================== */
+
+/* Color swatch blocks (section 4) */
+.block--forest {
+  background: #16302a;
+}
+
+.block--laterite {
+  background: #a63a2c;
+}
+
+.block--gold {
+  background: #d9a441;
+}
+
+.block--parchment {
+  background: #f1e8d8;
+  border-bottom: 1px solid #cbbfa2;
+}
+
+.block--ink {
+  background: #1b1815;
+}
+
+/* Wireframe SVG fills (section 6) */
+.wf-frame {
+  fill: #fff;
+  stroke: #cbbfa2;
+}
+
+.wf-header,
+.wf-footer {
+  fill: #16302a;
+}
+
+.wf-hero {
+  fill: #e4d6b8;
+}
+
+.wf-hero-left {
+  fill: #e4d6b8;
+}
+
+.wf-hero-right {
+  fill: #d9d0b6;
+}
+
+.wf-strip {
+  fill: #a63a2c;
+}
+
+.wf-card {
+  fill: #f1e8d8;
+  stroke: #cbbfa2;
+}
