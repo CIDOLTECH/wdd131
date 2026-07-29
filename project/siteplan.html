@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Planning Document — CIDOL Cycle Club</title>
+  <meta name="description"
+    content="Site plan for the CIDOL Cycle Club | WDD 131: W05 Project: Website Planning Document.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600&family=JetBrains+Mono:wght@500&family=Work+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="siteplan.css">
+</head>
+
+<body>
+  <header class="doc-header">
+    <div class="wrap">
+      <h1>Website Planning Document</h1>
+      <p>WDD 131 — W05 Project: Website Planning Document</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="back-link"><a href="../index.html">&larr; Back to the live site</a></nav>
+
+    <section>
+      <h2>1. Site name</h2>
+      <p><strong>CIDOL Cycle Club</strong></p>
+      <p>This name represents a club or group focused on eBiking in the Abuja area of Nigeria's Federal Capital
+        Territory. "CIDOL" is used as the club's founding acronym/identity, and "Cycle Club" states its function plainly
+        for search engines and new visitors alike. The name is short enough to fit a jersey, a nav bar, and a URL
+        without truncation.</p>
+      <p><em>Optional domain availability (not purchased for this course project):</em> cidolcycle-ebike.org</p>
+    </section>
+
+    <section>
+      <h2>2. Site purpose</h2>
+      <p>The site is a hub for regional eBiking around Abuja. It provides graded trail and route information,
+        plain-language eBike buying guidance matched to those trails, and a membership request form so new riders can
+        join scheduled group rides.</p>
+    </section>
+
+    <section>
+      <h2>3. Scenarios</h2>
+      <p>Two representative questions from the target audience — Abuja-area eBike owners and prospective owners — that
+        drove the site's content decisions:</p>
+      <ul>
+        <li>"Which eBike should I buy if I mainly want to ride the hills around Bwari, not just flat lakeside paths?"
+        </li>
+        <li>"How do I find out when the next group ride is, and how do I actually join the club?"</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Color schema</h2>
+      <p>The palette is drawn from Abuja's own terrain: deep hill-forest green, laterite red-earth roads, and a
+        brass/gold sun accent on a warm parchment background. This keeps the site visually tied to its subject rather
+        than reaching for a generic tech palette.</p>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="block" style="background:#16302a;"></div>
+          <div class="name">Forest Deep #16302a<br>Header, footer, dark sections</div>
+        </div>
+        <div class="swatch">
+          <div class="block" style="background:#a63a2c;"></div>
+          <div class="name">Laterite #a63a2c<br>Links, primary buttons, accents</div>
+        </div>
+        <div class="swatch">
+          <div class="block" style="background:#d9a441;"></div>
+          <div class="name">Gold #d9a441<br>Highlights on dark backgrounds</div>
+        </div>
+        <div class="swatch">
+          <div class="block" style="background:#f1e8d8; border-bottom:1px solid #cbbfa2;"></div>
+          <div class="name">Parchment #f1e8d8<br>Page background</div>
+        </div>
+        <div class="swatch">
+          <div class="block" style="background:#1b1815;"></div>
+          <div class="name">Ink #1b1815<br>Body text</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Typography</h2>
+      <p>Three typefaces, each with one clear job:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Typeface</th>
+            <th>Role</th>
+            <th>Sample</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fraunces</td>
+            <td>Display — headings and pull quotes</td>
+            <td>
+              <div class="type-sample display">Chart every climb</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Work Sans</td>
+            <td>Body — paragraphs, labels, navigation</td>
+            <td>
+              <div class="type-sample body">Graded trail routes and eBike advice for Abuja riders.</div>
+            </td>
+          </tr>
+          <tr>
+            <td>JetBrains Mono</td>
+            <td>Utility — stats, distances, kickers</td>
+            <td>
+              <div class="type-sample mono">18 KM · 210 M GAIN</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>6. Wireframes</h2>
+      <p>Home page layout, mobile (stacked, single column) and desktop (wider, multi-column) views:</p>
+      <div class="wireframes">
+        <figure>
+          <svg viewBox="0 0 160 300" width="160" height="300" role="img"
+            aria-label="Mobile wireframe: stacked header, hero, stat strip, three stacked cards, and footer">
+            <rect x="0" y="0" width="160" height="300" fill="#fff" stroke="#cbbfa2" />
+            <rect x="6" y="6" width="148" height="20" fill="#16302a" />
+            <rect x="6" y="32" width="148" height="60" fill="#e4d6b8" />
+            <rect x="6" y="98" width="148" height="16" fill="#a63a2c" />
+            <rect x="6" y="120" width="148" height="34" fill="#f1e8d8" stroke="#cbbfa2" />
+            <rect x="6" y="160" width="148" height="34" fill="#f1e8d8" stroke="#cbbfa2" />
+            <rect x="6" y="200" width="148" height="34" fill="#f1e8d8" stroke="#cbbfa2" />
+            <rect x="6" y="244" width="148" height="50" fill="#16302a" />
+          </svg>
+          <figcaption>Mobile: single stacked column, full-width sections.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 320 220" width="320" height="220" role="img"
+            aria-label="Desktop wireframe: header with nav row, two-column hero, stat strip, three-column card row, and footer">
+            <rect x="0" y="0" width="320" height="220" fill="#fff" stroke="#cbbfa2" />
+            <rect x="6" y="6" width="308" height="18" fill="#16302a" />
+            <rect x="6" y="30" width="150" height="56" fill="#e4d6b8" />
+            <rect x="164" y="30" width="150" height="56" fill="#d9d0b6" />
+            <rect x="6" y="92" width="308" height="14" fill="#a63a2c" />
+            <rect x="6" y="112" width="96" height="46" fill="#f1e8d8" stroke="#cbbfa2" />
+            <rect x="112" y="112" width="96" height="46" fill="#f1e8d8" stroke="#cbbfa2" />
+            <rect x="218" y="112" width="96" height="46" fill="#f1e8d8" stroke="#cbbfa2" />
+            <rect x="6" y="166" width="308" height="48" fill="#16302a" />
+          </svg>
+          <figcaption>Desktop: two-column hero, three-column card row, wide footer.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Testing plan (Stage 3)</h2>
+      <p>Before submission, the finished site will be checked with: the W3C HTML and CSS validators, the WAVE and
+        DevTools Lighthouse accessibility audits, DevTools CSS Overview for color-contrast issues, and Lighthouse
+        Performance/Best Practices/SEO audits in both mobile and desktop emulation.</p>
+    </section>
+  </div>
+</body>
+
+</html>
