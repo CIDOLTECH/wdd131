@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Review | Time Circuit Reviews</title>
+  <meta name="description" content="Submit a review for one of our temporal hardware products.">
+  <meta name="author" content="Peter Ella Bisong">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/form.css">
+  <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+
+  <main>
+    <div class="console">
+
+      <div class="console-header">
+        <span class="status-dot" aria-hidden="true"></span>
+        <p class="eyebrow">Temporal Hardware Division</p>
+        <h1>Product Review</h1>
+        <p class="subtitle">Rate your time-travel equipment</p>
+      </div>
+
+      <div class="console-body">
+        <form id="review-form" method="get" action="review.html">
+
+          <!-- Product Name -->
+          <fieldset class="field-module">
+            <label class="field-label" for="product-name">Product Name</label>
+            <select id="product-name" name="productName" required>
+              <option value="" disabled selected>Select a Product ...</option>
+              <!-- Remaining options are inserted dynamically by js/script.js -->
+            </select>
+          </fieldset>
+
+          <!-- Overall Rating -->
+          <fieldset class="field-module">
+            <legend class="field-label">Overall Rating</legend>
+            <div class="stars">
+              <input type="radio" id="rating-5" name="rating" value="5" required>
+              <label for="rating-5" title="5 stars">★</label>
+
+              <input type="radio" id="rating-4" name="rating" value="4">
+              <label for="rating-4" title="4 stars">★</label>
+
+              <input type="radio" id="rating-3" name="rating" value="3">
+              <label for="rating-3" title="3 stars">★</label>
+
+              <input type="radio" id="rating-2" name="rating" value="2">
+              <label for="rating-2" title="2 stars">★</label>
+
+              <input type="radio" id="rating-1" name="rating" value="1">
+              <label for="rating-1" title="1 star">★</label>
+            </div>
+            <p class="rating-readout">1 = poor &nbsp;·&nbsp; 5 = excellent</p>
+          </fieldset>
+
+          <!-- Date of Installation -->
+          <fieldset class="field-module">
+            <label class="field-label" for="install-date">Date of Installation</label>
+            <input type="date" id="install-date" name="installDate" required>
+          </fieldset>
+
+          <!-- Useful Features -->
+          <fieldset class="field-module">
+            <legend class="field-label">
+              Which features did you find useful?
+              <span class="field-hint">Check all that apply</span>
+            </legend>
+            <div class="checkbox-grid">
+              <div class="checkbox-row">
+                <input type="checkbox" id="feature-durability" name="features" value="Durability">
+                <label for="feature-durability">Durability</label>
+              </div>
+              <div class="checkbox-row">
+                <input type="checkbox" id="feature-ease" name="features" value="Ease of Use">
+                <label for="feature-ease">Ease of Use</label>
+              </div>
+              <div class="checkbox-row">
+                <input type="checkbox" id="feature-performance" name="features" value="Performance">
+                <label for="feature-performance">Performance</label>
+              </div>
+              <div class="checkbox-row">
+                <input type="checkbox" id="feature-design" name="features" value="Design">
+                <label for="feature-design">Design</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Written Review -->
+          <fieldset class="field-module">
+            <label class="field-label" for="written-review">
+              Written Review <span class="optional-tag">(Optional)</span>
+            </label>
+            <textarea id="written-review" name="writtenReview" rows="4"
+              placeholder="Tell us how the product performed..."></textarea>
+          </fieldset>
+
+          <!-- User Name -->
+          <fieldset class="field-module">
+            <label class="field-label" for="user-name">
+              Your Name <span class="optional-tag">(Optional)</span>
+            </label>
+            <input type="text" id="user-name" name="userName" placeholder="e.g. Marty M.">
+          </fieldset>
+
+          <div class="submit-row">
+            <input type="submit" value="Post Review">
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="copy-year"></span> Peter Ella Bisong</p>
+    <p>Abuja, Nigeria</p>
+    <p>Last Modification: <span id="last-modified"></span></p>
+  </footer>
+</body>
+
+</html>
