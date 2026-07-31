@@ -1,0 +1,470 @@
+/* ==========================================================================
+   Flux Capacitor Product Review — Stylesheet
+   Theme: retro-futuristic time-machine control console
+   Palette:
+     --bg-deep:    #0d0f16  (near-black chassis)
+     --panel:      #171b26  (console panel)
+     --panel-2:    #1f2436  (recessed field background)
+     --amber:      #ffb347  (primary indicator glow)
+     --teal:       #5fe6d2  (secondary indicator glow)
+     --paper:      #eef0e8  (readout text)
+     --paper-dim:  #a9afc0  (secondary text)
+   Type:
+     Display: 'Audiowide' (console signage)
+     Body:    'IBM Plex Sans' (readable interface text)
+     Utility: 'IBM Plex Mono' (data readouts, labels)
+   ========================================================================== */
+
+:root {
+  --bg-deep: #0d0f16;
+  --panel: #171b26;
+  --panel-2: #1f2436;
+  --panel-border: #2c3248;
+  --amber: #ffb347;
+  --amber-dim: #7a5a2e;
+  --teal: #5fe6d2;
+  --paper: #eef0e8;
+  --paper-dim: #a9afc0;
+  --danger: #ff6b6b;
+
+  --font-display: 'Audiowide', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(95, 230, 210, 0.06), transparent 45%),
+    radial-gradient(circle at 80% 100%, rgba(255, 179, 71, 0.06), transparent 45%);
+  color: var(--paper);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
+}
+
+/* ---------- Console shell ---------- */
+
+.console {
+  width: 100%;
+  max-width: 640px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+              0 20px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.console-header {
+  background: linear-gradient(180deg, #20263a 0%, #171b26 100%);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 1.5rem 1.75rem 1.25rem;
+  text-align: center;
+  position: relative;
+}
+
+.console-header .status-dot {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px 2px rgba(95, 230, 210, 0.7);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.console-header .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--teal);
+  text-transform: uppercase;
+  margin: 0 0 0.4rem;
+}
+
+.console-header h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  margin: 0;
+  color: var(--paper);
+  text-shadow: 0 0 18px rgba(255, 179, 71, 0.25);
+}
+
+.console-header p.subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--paper-dim);
+  margin: 0.6rem 0 0;
+}
+
+.console-body {
+  padding: 1.75rem;
+}
+
+/* ---------- Fieldsets / form modules ---------- */
+
+.field-module {
+  margin-bottom: 1.6rem;
+  border: none;
+  padding: 0;
+}
+
+.field-module legend,
+.field-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.field-hint {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--paper-dim);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  margin-top: 0.15rem;
+}
+
+.optional-tag {
+  color: var(--paper-dim);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Text-like inputs */
+select,
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7rem 0.85rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+select:hover,
+input[type="text"]:hover,
+input[type="date"]:hover,
+textarea:hover {
+  border-color: #3a4160;
+}
+
+select:focus-visible,
+input[type="text"]:focus-visible,
+input[type="date"]:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.22);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235fe6d2' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 18px;
+  padding-right: 2.4rem;
+}
+
+select:invalid,
+select option[value=""] {
+  color: var(--paper-dim);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+  font-family: var(--font-body);
+}
+
+/* Checkboxes (Useful Features) */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 1rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--panel-2);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--amber);
+  flex-shrink: 0;
+}
+
+.checkbox-row label {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--paper);
+  cursor: pointer;
+}
+
+/* ---------- Star rating (radio group) ---------- */
+
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+.stars input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.stars label {
+  font-size: 2.1rem;
+  line-height: 1;
+  color: #3a4160;
+  cursor: pointer;
+  transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.1s ease;
+  user-select: none;
+}
+
+.stars input:hover ~ label,
+.stars input:checked ~ label,
+.stars label:hover ~ label {
+  color: var(--amber);
+  text-shadow: 0 0 10px rgba(255, 179, 71, 0.55);
+}
+
+.stars input:checked + label {
+  transform: scale(1.08);
+}
+
+.stars input:focus-visible + label {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.rating-readout {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--paper-dim);
+  margin-top: 0.5rem;
+}
+
+/* ---------- Submit ---------- */
+
+.submit-row {
+  margin-top: 2rem;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background: linear-gradient(180deg, #ffc36b, var(--amber));
+  color: #1a1206;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(255, 179, 71, 0.25);
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+input[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(255, 179, 71, 0.35);
+}
+
+input[type="submit"]:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* ---------- Confirmation page ---------- */
+
+.confirmation-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.75rem;
+  border-radius: 50%;
+  background: rgba(95, 230, 210, 0.12);
+  border: 1px solid var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--teal);
+}
+
+.summary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.summary-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--panel-border);
+  font-size: 0.95rem;
+}
+
+.summary-list li:last-child {
+  border-bottom: none;
+}
+
+.summary-list .summary-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+  white-space: nowrap;
+}
+
+.summary-list .summary-value {
+  text-align: right;
+  color: var(--paper);
+}
+
+.counter-panel {
+  margin-top: 1.75rem;
+  background: var(--panel-2);
+  border: 1px dashed var(--panel-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.counter-panel .counter-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+}
+
+.counter-panel .counter-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--amber);
+  text-shadow: 0 0 12px rgba(255, 179, 71, 0.4);
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  border-bottom-color: var(--teal);
+}
+
+/* ---------- Footer ---------- */
+
+footer.site-footer {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--paper-dim);
+  text-align: center;
+  padding: 1.25rem 1rem;
+  border-top: 1px solid var(--panel-border);
+  background: var(--panel);
+}
+
+footer.site-footer p {
+  margin: 0.2rem 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 480px) {
+  .console-body {
+    padding: 1.25rem;
+  }
+
+  .console-header {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+
+  .stars label {
+    font-size: 1.7rem;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-list li {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .summary-list .summary-value {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .console-header .status-dot {
+    animation: none;
+  }
+}
