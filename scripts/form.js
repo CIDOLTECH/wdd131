@@ -1,5 +1,5 @@
 // ==========================================================================
-// form.html behavior:
+// form.html behavior (scripts/form.js):
 // 1. Populate the Product Name <select> from the products data array.
 // 2. Fill in the footer's copyright year / last-modified date.
 // ==========================================================================

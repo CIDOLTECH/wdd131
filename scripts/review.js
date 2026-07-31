@@ -1,5 +1,5 @@
 // ==========================================================================
-// review.html behavior:
+// review.html behavior (scripts/review.js):
 // 1. Read the submitted form data from the URL's query string (the form
 //    uses method="get", so every field arrives as ?name=value&...).
 // 2. Render a human-readable summary of what was submitted.
