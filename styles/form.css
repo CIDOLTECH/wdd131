@@ -25,6 +25,7 @@
   --teal: #5fe6d2;
   --paper: #eef0e8;
   --paper-dim: #a9afc0;
+  --required: #ff6b6b;
 
   --font-display: 'Audiowide', 'Segoe UI', sans-serif;
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;
@@ -35,7 +36,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -69,7 +71,7 @@ main {
   border: 1px solid var(--panel-border);
   border-radius: 14px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-              0 20px 60px rgba(0, 0, 0, 0.45);
+    0 20px 60px rgba(0, 0, 0, 0.45);
   overflow: hidden;
 }
 
@@ -94,8 +96,15 @@ main {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
 }
 
 .console-header .eyebrow {
@@ -155,6 +164,41 @@ main {
   text-transform: none;
   letter-spacing: 0.02em;
   margin-top: 0.15rem;
+}
+
+/* Required-field indicator: asterisk + accessible key line */
+.form-key {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--paper-dim);
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.required-mark {
+  color: var(--required);
+  font-weight: 700;
+}
+
+.field-label .required-mark,
+legend.field-label .required-mark {
+  margin-left: 0.2rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .optional-tag {
@@ -272,18 +316,18 @@ textarea {
   user-select: none;
 }
 
-.stars input:hover ~ label,
-.stars input:checked ~ label,
-.stars label:hover ~ label {
+.stars input:hover~label,
+.stars input:checked~label,
+.stars label:hover~label {
   color: var(--amber);
   text-shadow: 0 0 10px rgba(255, 179, 71, 0.55);
 }
 
-.stars input:checked + label {
+.stars input:checked+label {
   transform: scale(1.08);
 }
 
-.stars input:focus-visible + label {
+.stars input:focus-visible+label {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
   border-radius: 4px;
