@@ -1,0 +1,11 @@
+<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2 d2">
+  <title id="t2">Trail / gravel class eBike</title>
+  <desc id="d2">Flat illustration of a rugged eBike with front suspension and knobby tires for climbs like Bwari Hills.</desc>
+  <rect width="200" height="140" fill="#f1e8d8"/>
+  <circle cx="50" cy="102" r="28" fill="none" stroke="#1b1815" stroke-width="5"/>
+  <circle cx="150" cy="102" r="28" fill="none" stroke="#1b1815" stroke-width="5"/>
+  <path d="M50 102 L92 50 L124 50 M92 50 L118 102 M118 102 L150 102" fill="none" stroke="#a63a2c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M124 50 L112 78" fill="none" stroke="#1b1815" stroke-width="6" stroke-linecap="round"/>
+  <rect x="118" y="34" width="26" height="9" rx="2" fill="#d9a441"/>
+  <circle cx="92" cy="50" r="4.5" fill="#1b1815"/>
+</svg>
