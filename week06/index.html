@@ -8,18 +8,36 @@
   <meta name="description"
     content="CIDOL Cycle Club is Abuja's regional eBiking community: graded trail routes, eBike buying advice, and weekly group rides around the FCT.">
   <meta name="author" content="Peter Ella Bisong">
+  <meta name="theme-color" content="#1c1a17">
+  <link rel="canonical" href="https://cidolcycleclub.org/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles/project.css">
-  <script src="scripts/project.js"></script>
-  <script src="scripts/app.js"></script>
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
   <meta property="og:title" content="CIDOL Cycle Club — Abuja eBiking Community">
   <meta property="og:description" content="Graded trail routes, eBike advice, and weekly group rides around Abuja.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cidolcycleclub.org/">
+  <meta property="og:image" content="https://cidolcycleclub.org/images/social-share.jpg">
+
+  <!--
+    Both project scripts moved here with `defer` (not removed to `<head>`
+    without it, and not moved to the end of `<body>`). `defer` keeps them
+    non-render-blocking, executes them in source order, and — critically —
+    guarantees the DOM is fully parsed before either file runs. Previously,
+    with no `defer`, these tags executed the instant the parser reached
+    them, before <body> existed, so any top-level `document.querySelector`
+    call in project.js or app.js would have silently returned null and
+    every dynamic feature (nav toggle, countdown, footer year) would have
+    failed with no visible error.
+  -->
+  <script src="scripts/project.js" defer></script>
+  <script src="scripts/app.js" defer></script>
 </head>
 
 <body>
@@ -28,7 +46,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">
-        <svg viewBox="0 0 48 48" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true">
           <circle cx="12" cy="34" r="8" fill="none" stroke="currentColor" stroke-width="3"></circle>
           <circle cx="36" cy="34" r="8" fill="none" stroke="currentColor" stroke-width="3"></circle>
           <path d="M12 34 L22 16 L30 16 M22 16 L30 34 M30 34 L36 34 M20 22 L30 22" fill="none" stroke="currentColor"
@@ -37,8 +55,8 @@
         </svg>
         <span>CIDOL Cycle Club<span class="brand-sub">Abuja eBiking</span></span>
       </a>
-      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-navigation">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
+      <button class="nav-toggle" data-nav-toggle type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           </path>
         </svg>
@@ -69,7 +87,7 @@
           </div>
         </div>
         <div>
-          <svg class="elevation" viewBox="0 0 480 220" role="img"
+          <svg class="elevation" viewBox="0 0 480 220" width="480" height="220" role="img"
             aria-label="Illustrative elevation profile of the Bwari Hills Climb, the club's benchmark route">
             <defs>
               <linearGradient id="elevGradient" x1="0" y1="0" x2="0" y2="1">
@@ -155,7 +173,7 @@
 
     <section class="section-alt">
       <div class="wrap">
-        <blockquote class="quote-block" style="color: var(--ink);">
+        <blockquote class="quote-block quote-block--ink">
           "I bought a commuter eBike for city errands and assumed it would handle Bwari. CIDOL's trail notes told me
           otherwise before I found out the hard way, halfway up a granite switchback."
           <cite>— O. Adeyemi, member since 2023</cite>
@@ -186,7 +204,7 @@
     <div class="wrap footer-bottom">
       <p>&copy; <span data-current-year>2026</span> CIDOL Cycle Club. WDD 131 course project — not a commercial entity.
       </p>
-      <p data-last-modified>Last updated</p>
+      <p>Last updated <time data-last-modified datetime="">—</time></p>
     </div>
   </footer>
 </body>
